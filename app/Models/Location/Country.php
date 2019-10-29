@@ -1,17 +1,17 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Location;
 
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
 /**
- * App\Models\Category
+ * App\Models\Location\Country
  *
  * @property integer $id
  * @property string $name
  */
-class Category extends Model
+class Country extends Model
 {
     use HasTranslations;
 

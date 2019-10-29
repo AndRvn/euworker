@@ -1,19 +1,24 @@
 <?php
 
-namespace App\Models;
+namespace App\Models\Location;
 
+use Eloquent;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
 /**
- * App\Models\Category
+ * App\Models\Location\City
  *
  * @property integer $id
  * @property string $name
+ * @property integer $city_id
+ * @mixin Eloquent
  */
-class Category extends Model
+class City extends Model
 {
     use HasTranslations;
+
+    protected $fillable = ['city_id'];
 
     public $translatable = ['name'];
 }

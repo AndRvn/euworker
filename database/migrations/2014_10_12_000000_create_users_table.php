@@ -17,10 +17,20 @@ class CreateUsersTable extends Migration
             $table->bigIncrements('id');
             $table->string('name');
             $table->string('email')->unique();
+            $table->string('phone')->unique()->nullable();
+            $table->enum('type', \App\User::TYPES)->nullable();
+            $table->string('avatar')->nullable();
             $table->timestamp('email_verified_at')->nullable();
+            $table->string('verify_token')->nullable()->unique();
+            $table->enum('status', \App\User::STATUSES)->default(\App\User::STATUS_ACTIVE);
             $table->string('password');
+            $table->boolean('is_company')->nullable();
+            $table->json('company_name')->nullable();
+            $table->unsignedBigInteger('view_count')->default(0);
+            $table->json('social_link')->nullable();
             $table->rememberToken();
             $table->timestamps();
+
         });
     }
 

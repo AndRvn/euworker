@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Eloquent;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
@@ -10,8 +11,9 @@ use Spatie\Translatable\HasTranslations;
  *
  * @property integer $id
  * @property string $name
+ * @mixin Eloquent
  */
-class Category extends Model
+class Experience extends Model
 {
     use HasTranslations;
 
