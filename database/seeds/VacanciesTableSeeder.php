@@ -20,7 +20,7 @@ class VacanciesTableSeeder extends Seeder
         $count = 0;
 
         for ($i = 0; $i < 50; $i++) {
-            $test = factory(\App\Models\Rent::class, self::LIMIT)->create();
+            factory(\App\Models\Vacancy::class, self::LIMIT)->create();
 
             $count += self::LIMIT;
 

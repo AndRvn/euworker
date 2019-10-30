@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 
 class CitiesTableSeeder extends Seeder
 {
-    const TABLE = 'experiences';
+    const TABLE = 'cities';
 
     /**
      * Run the database seeds.

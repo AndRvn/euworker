@@ -20,18 +20,18 @@ class CreateResumesTable extends Migration
             $table->json('first_name');
             $table->json('last_name');
             $table->json('description')->nullable();
-            $table->enum('language', config('constants.languages'))->nullable();
-            $table->enum('language_level', config('constants.language_levels'))->nullable();
+            $table->json('languages')->nullable();
             $table->string('resume_path')->nullable();
             $table->enum('education', config('constants.education'))->nullable();
-            $table->json('skills')->nullable();
             $table->float('desired_salary')->nullable();
             $table->dateTime('birth_date')->nullable();
             $table->unsignedBigInteger('country_id')->nullable();
+            $table->unsignedBigInteger('experience_id')->nullable();
             $table->unsignedBigInteger('city_id')->nullable();
             $table->unsignedBigInteger('view_count')->nullable();
             $table->timestamps();
 
+            $table->foreign('experience_id')->references('id')->on('experiences')->onDelete('cascade');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('country_id')->references('id')->on('countries')->onDelete('set null');
             $table->foreign('city_id')->references('id')->on('cities')->onDelete('set null');

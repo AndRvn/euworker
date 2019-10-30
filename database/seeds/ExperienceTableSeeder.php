@@ -19,7 +19,6 @@ class ExperienceTableSeeder extends Seeder
             \App\Models\Experience::create(['name' => ['en' => $item]]);
 
             $this->command->info($item  . ' created');
-
         }
     }
 }

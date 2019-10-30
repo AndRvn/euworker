@@ -15,20 +15,26 @@ use Faker\Generator as Faker;
 */
 
 $factory->define(\App\Models\Resume::class, function (Faker $faker) {
+    $languages = [
+        'lang' => $faker->randomElement(config('constants.languages')),
+        'level' => $faker->randomElement(config('constants.language_levels')),
+    ];
+
+    $city = \App\Models\Location\City::all()->random();
+
     return [
-        'title' => ['en' => $faker->title],
+        'title' => ['en' => $faker->jobTitle],
         'first_name' => ['en' => $faker->firstName],
         'last_name' => ['en' => $faker->lastName],
         'experience_id' => \App\Models\Experience::all()->random(),
-        'language_id' => $faker->randomElement(config('constants.languages')),
-        'language_level' => $faker->randomElement(config('constants.language_levels')),
+        'languages' => json_encode($languages),
         'description' => ['en' => $faker->realText()],
         'education' => $faker->randomElement(config('constants.education')),
-        'skills' => \App\Models\Skill::all()->random(),
-        'desired_salary' => $faker->randomFloat(),
+        'desired_salary' => $faker->randomFloat(3, 900, 3000),
         'birth_date' => $faker->dateTimeBetween('1950-01-01', '2000-12-31'),
-        'country_id' => \App\Models\Location\Country::all()->random(),
-        'city_id' => \App\Models\Location\City::all()->random(),
+        'city_id' => $city->id,
+        'country_id' => $city->country_id,
         'view_count' => $faker->randomNumber(),
+        'user_id' => \App\User::where('type', 'seeker')->get()->random(),
     ];
 });

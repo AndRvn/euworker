@@ -9,9 +9,9 @@ return [
     ],
 
     'languages' => [
+//        'Ukrainian',
+//        'Russian',
         'English',
-        'Ukrainian',
-        'Russian',
         'German',
         'Polish'
     ],

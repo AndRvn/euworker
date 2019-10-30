@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 /**
  * App\Models\Vacancy
@@ -18,6 +19,7 @@ use Illuminate\Database\Eloquent\Model;
  * @property integer $experience_id
  * @property integer $user_id
  * @property array $languages
+ * @property array $skills
  * @property float $salary
  * @property float $salary_per_hour
  * @property integer $education
@@ -26,6 +28,7 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Vacancy extends Model
 {
+    use HasTranslations;
 
     const FULL_TIME = 'full time';
     const PART_TIME = 'part time';
@@ -52,4 +55,10 @@ class Vacancy extends Model
     ];
 
     public $translatable = ['name', 'description'];
+
+    protected $casts = [
+        'languages' => 'array',
+    ];
+
+
 }

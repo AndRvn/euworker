@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 /**
  * App\Models\Skill
@@ -12,5 +13,12 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Skill extends Model
 {
+    use HasTranslations;
+
     public $translatable = ['name'];
+
+    public function skills()
+    {
+        return $this->belongsToMany(Resume::class, 'resume_user');
+    }
 }

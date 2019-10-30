@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Carbon\Carbon;
 use Illuminate\Database\Eloquent\Model;
+use Spatie\Translatable\HasTranslations;
 
 /**
  * App\Models\Resume
@@ -26,6 +27,8 @@ use Illuminate\Database\Eloquent\Model;
  */
 class Resume extends Model
 {
+    use HasTranslations;
+
     protected $fillable = [
         'user_id',
         'language_id',
@@ -37,6 +40,7 @@ class Resume extends Model
         'country_id',
         'city_id',
         'view_count',
+        'experience_id',
     ];
 
     public $translatable = [
@@ -47,4 +51,9 @@ class Resume extends Model
     ];
 
     protected $casts = ['birth_date' => 'datetime'];
+
+    public function skills()
+    {
+        return $this->belongsToMany(Skill::class, 'resume_skill');
+    }
 }

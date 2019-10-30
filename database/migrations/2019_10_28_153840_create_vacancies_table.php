@@ -29,6 +29,7 @@ class CreateVacanciesTable extends Migration
             $table->enum('education', config('constants.education'))->nullable();
             $table->dateTime('published_at')->default(\Carbon\Carbon::now());
             $table->dateTime('validity')->default(\Carbon\Carbon::now()->addMonths(3));
+            $table->unsignedInteger('view_count')->nullable();
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');
