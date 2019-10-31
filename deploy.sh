@@ -12,8 +12,7 @@ CELL_END="\n $CELL_LINE $COL_RESET \n"
 echo "$CELL_BEGIN ============= Pull master ============== $CELL_END"
 git pull origin master
 
-echo ""
-echo "Composer install..."
+echo "$CELL_BEGIN =========== Composer install ============ $CELL_END"
 composer install
 
 echo "$CELL_BEGIN =========== Install/update composer dependecies ============ $CELL_END"
@@ -24,6 +23,7 @@ php artisan migrate --force
 
 echo "$CELL_BEGIN =========== Clear caches ============ $CELL_END"
 php artisan cache:clear
+php artisan key:generate
 
 echo "$CELL_BEGIN =========== Generate JWT ============ $CELL_END"
 php artisan jwt:secret
