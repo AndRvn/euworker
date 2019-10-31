@@ -4,7 +4,7 @@ use Illuminate\Database\Seeder;
 
 class ResumeTableSeeder extends Seeder
 {
-    const LIMIT = 20;
+    const LIMIT = 5;
 
     const TABLE = 'resumes';
 

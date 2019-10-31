@@ -9,6 +9,7 @@ use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+use Illuminate\Support\Str;
 use Spatie\Permission\Traits\HasRoles;
 use Spatie\Translatable\HasTranslations;
 use Tymon\JWTAuth\Contracts\JWTSubject;
@@ -40,6 +41,7 @@ class User extends Authenticatable implements JWTSubject, CanResetPasswordContra
     use HasTranslations;
 
     const ROLE_ADMIN = 'admin';
+    const ROLE_MODERATOR = 'moderator';
     const ROLE_CLIENT = 'client';
     const ROLE_CUSTOMER = 'customer';
 
@@ -52,6 +54,13 @@ class User extends Authenticatable implements JWTSubject, CanResetPasswordContra
     const STATUSES = [
         0 => self::STATUS_BLOCK,
         1 => self::STATUS_ACTIVE,
+    ];
+
+    const ROLES = [
+        1 => self::ROLE_ADMIN,
+        2 => self::ROLE_MODERATOR,
+        3 => self::ROLE_CLIENT,
+        4 => self::ROLE_CUSTOMER,
     ];
 
     const TYPES = [
@@ -111,5 +120,13 @@ class User extends Authenticatable implements JWTSubject, CanResetPasswordContra
     public function setPasswordAttribute($password)
     {
         $this->attributes['password'] = bcrypt($password);
+    }
+
+    public function generateVerifyToken()
+    {
+        do {
+            $verifyToken = Str::random(15);
+            $this->setAttribute('verify_token', $verifyToken);
+        } while (!is_null(\App\User::where('verify_token', $verifyToken)->first()));
     }
 }

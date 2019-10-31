@@ -26,7 +26,7 @@ class CreateUsersTable extends Migration
             $table->string('password');
             $table->boolean('is_company')->nullable();
             $table->json('company_name')->nullable();
-            $table->unsignedBigInteger('view_count')->default(0);
+            $table->unsignedBigInteger('view_count')->nullable();
             $table->json('social_link')->nullable();
             $table->rememberToken();
             $table->timestamps();
