@@ -7,6 +7,7 @@ use Eloquent;
 use Illuminate\Auth\Passwords\CanResetPassword;
 use Illuminate\Contracts\Auth\CanResetPassword as CanResetPasswordContract;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Illuminate\Support\Str;
@@ -27,6 +28,7 @@ use Tymon\JWTAuth\Contracts\JWTSubject;
  * @property integer $type
  * @property string $avatar
  * @property boolean $is_company
+ * @property boolean $is_hidden
  * @property string $company_name
  * @property integer $view_count
  * @property array $social_link
@@ -39,6 +41,7 @@ class User extends Authenticatable implements JWTSubject, CanResetPasswordContra
     use HasRoles;
     use Messagable;
     use HasTranslations;
+    use SoftDeletes;
 
     const ROLE_ADMIN = 'admin';
     const ROLE_MODERATOR = 'moderator';
@@ -84,7 +87,8 @@ class User extends Authenticatable implements JWTSubject, CanResetPasswordContra
         'avatar',
         'is_company',
         'view_count',
-        'social_link'
+        'social_link',
+        'is_hidden',
     ];
 
     /**

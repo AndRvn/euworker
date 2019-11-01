@@ -20,6 +20,7 @@ $factory->define(\App\Models\Rent::class, function (Faker $faker) {
     return [
         'title' => ['en' => $faker->name] ,
         'description' => ['en' => $faker->realText(900)],
+        'address' => ['en' => $faker->address],
         'price' => $faker->randomFloat(3, 900, 3000),
         'published_at' => \Carbon\Carbon::now(),
         'validity' => \Carbon\Carbon::now()->addMonths(3),

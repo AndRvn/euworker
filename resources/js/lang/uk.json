@@ -3,5 +3,8 @@
     "create_account": "Створити обілковий запис",
     "login": "Увійти",
     "remember_me": "Запам'ятати мене",
-    "forgot_password": "Забули пароль ?"
+    "forgot_password": "Забули пароль ?",
+    "add-advert": "Додати оголошеня",
+    "speed-advert": "Швидке оголошення",
+    "extended-advert": "Розширене оголошення"
 }

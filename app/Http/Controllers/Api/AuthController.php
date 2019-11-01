@@ -12,18 +12,12 @@ use Carbon\Carbon;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Mail;
-use App\Http\Resources\User as UserResource;
+use App\Http\Resources\UserResource;
 use App\User;
 use Illuminate\Support\Str;
 
 class AuthController extends BaseController
 {
-    /**
-     * Create a new AuthController instance.
-     *
-     * @return void
-     */
-
     public function __construct()
     {
         $this->middleware('auth:api')->only(['me', 'logout', 'refresh']);

@@ -14,7 +14,7 @@ return [
      |
      */
 
-    'enabled' => env('DEBUGBAR_ENABLED', null),
+    'enabled' => env('DEBUGBAR_ENABLED', false),
     'except' => [
         'telescope*'
     ],
@@ -89,7 +89,7 @@ return [
      | Extension, without the server-side code. It uses Debugbar collectors instead.
      |
      */
-    'clockwork' => false,
+    'clockwork' => true,
 
     /*
      |--------------------------------------------------------------------------

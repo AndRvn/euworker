@@ -29,6 +29,7 @@ class CreateResumesTable extends Migration
             $table->unsignedBigInteger('experience_id')->nullable();
             $table->unsignedBigInteger('city_id')->nullable();
             $table->unsignedBigInteger('view_count')->nullable();
+            $table->boolean('is_hidden')->nullable();
             $table->timestamps();
 
             $table->foreign('experience_id')->references('id')->on('experiences')->onDelete('cascade');

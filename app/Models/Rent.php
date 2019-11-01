@@ -18,6 +18,7 @@ use Spatie\Translatable\HasTranslations;
  * @property integer $city_id
  * @property integer $country_id
  * @property Carbon $validity
+ * @property boolean $is_hidden
  */
 class Rent extends Model
 {
@@ -25,7 +26,7 @@ class Rent extends Model
 
     protected $fillable = ['price', 'published_at', 'validity', 'user_id', 'city_id', 'country_id'];
 
-    public $translatable = ['title', 'description'];
+    public $translatable = ['title', 'description', 'address', 'isHidden', 'is_hidden'];
 
     protected $casts = [
         'published_at' => 'datetime',

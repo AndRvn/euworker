@@ -2,7 +2,7 @@
     <main>
         <ProfilePreference></ProfilePreference>
         <div class="container">
-            <h1>App layout</h1>
+            <h1>Profile layout</h1>
             <router-view></router-view>
         </div>
         <v-footer/>

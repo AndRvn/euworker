@@ -28,6 +28,8 @@ class CreateUsersTable extends Migration
             $table->json('company_name')->nullable();
             $table->unsignedBigInteger('view_count')->nullable();
             $table->json('social_link')->nullable();
+            $table->boolean('is_hidden')->nullable();
+            $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();
 

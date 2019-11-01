@@ -15,5 +15,7 @@ class Country extends Model
 {
     use HasTranslations;
 
+    protected $fillable = ['id'];
+
     public $translatable = ['name'];
 }

@@ -18,11 +18,13 @@ class CreateRentsTable extends Migration
             $table->unsignedBigInteger('user_id');
             $table->json('title');
             $table->json('description')->nullable();
+            $table->json('address')->nullable();
             $table->float('price')->nullable();
             $table->unsignedBigInteger('country_id')->nullable();
             $table->unsignedBigInteger('city_id')->nullable();
             $table->date('published_at')->default(\Carbon\Carbon::now());
             $table->dateTime('validity')->default(\Carbon\Carbon::now()->addMonths(3));
+            $table->boolean('is_hidden')->nullable();
             $table->timestamps();
 
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');

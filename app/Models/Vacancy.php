@@ -25,6 +25,7 @@ use Spatie\Translatable\HasTranslations;
  * @property integer $education
  * @property Carbon $published_at
  * @property Carbon $validity
+ * @property boolean $is_hidden
  */
 class Vacancy extends Model
 {
@@ -52,6 +53,7 @@ class Vacancy extends Model
         'education',
         'published_at',
         'validity',
+        'is_hidden'
     ];
 
     public $translatable = ['name', 'description'];

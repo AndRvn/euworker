@@ -30,6 +30,7 @@ class CreateVacanciesTable extends Migration
             $table->dateTime('published_at')->default(\Carbon\Carbon::now());
             $table->dateTime('validity')->default(\Carbon\Carbon::now()->addMonths(3));
             $table->unsignedInteger('view_count')->nullable();
+            $table->boolean('is_hidden')->nullable();
             $table->timestamps();
 
             $table->foreign('category_id')->references('id')->on('categories')->onDelete('cascade');

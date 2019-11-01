@@ -1,26 +1,17 @@
 <template>
     <main>
-        <ProfilePreference></ProfilePreference>
         <div class="container">
-            <h1>App layout</h1>
             <router-view></router-view>
         </div>
-        <v-footer/>
     </main>
 
 </template>
 
 <script>
-    import VHeader from "../components/blocks/Header";
-    import VFooter from "../components/blocks/Footer";
-    import ProfilePreference from "../components/blocks/ProfilePreference";
 
     export default {
         props: {},
         components: {
-            VHeader,
-            VFooter,
-            ProfilePreference
 
         },
         methods: {

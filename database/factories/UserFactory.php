@@ -27,7 +27,7 @@ $factory->define(User::class, function (Faker $faker) {
         'phone' => $faker->phoneNumber,
         'type' => $faker->randomElement(User::TYPES),
         'is_company' => $faker->boolean(),
-        'company_name' => ['en' => $faker->name],
+        'company_name' => ['en' => $faker->company],
         'view_count' => $faker->randomDigit,
         'password' => 'secret',
         'remember_token' => Str::random(10),

@@ -21,6 +21,7 @@
         "tymon/jwt-auth": "^1.0.0"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.2",
         "barryvdh/laravel-ide-helper": "^2.6",
         "facade/ignition": "^1.4",
         "fruitcake/laravel-telescope-toolbar": "^1.1",

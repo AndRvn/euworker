@@ -15,6 +15,7 @@ import NoFoundComponent from '../pages/errors/404';
 //variables
 import {authLayout, appLayout, errorLayout} from '../common/variables/layout';
 import beforeEach from "../common/module/websanovaRoueterBeforeEach";
+import CreateAdvert from "../pages/CreateAdvert";
 
 const routes = [
     {
@@ -61,6 +62,13 @@ const routes = [
         name: 'profile',
         component: Profile,
         meta: { auth: true, layout: authLayout }
+    },
+
+    {
+        path: '/advert',
+        name: 'creteAdvert',
+        component: CreateAdvert,
+        meta: { auth: false, layout: appLayout }
     },
     //Errors
     {

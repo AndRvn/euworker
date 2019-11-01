@@ -19,7 +19,7 @@ echo "$CELL_BEGIN =========== Install/update composer dependecies ============ $
 composer install --no-interaction --prefer-dist --optimize-autoloader
 
 echo "$CELL_BEGIN =========== Run database migrations ============ $CELL_END"
-php artisan migrate --force
+php artisan migrate
 
 echo "$CELL_BEGIN =========== Clear caches ============ $CELL_END"
 php artisan cache:clear
@@ -31,6 +31,7 @@ php artisan jwt:secret
 echo "$CELL_BEGIN =========== Clear and cache routes ============ $CELL_END"
 php artisan route:clear
 php artisan route:cache
+php artisan jwt:secret
 
 echo "$CELL_BEGIN =========== Clear and cache config ============ $CELL_END"
 php artisan config:clear

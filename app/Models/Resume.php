@@ -24,6 +24,7 @@ use Spatie\Translatable\HasTranslations;
  * @property integer $country_id
  * @property integer $city_id
  * @property integer $view_count
+ * @property boolean $is_hidden
  */
 class Resume extends Model
 {
@@ -41,6 +42,7 @@ class Resume extends Model
         'city_id',
         'view_count',
         'experience_id',
+        'is_hidden'
     ];
 
     public $translatable = [
