@@ -2,11 +2,11 @@
 
 use Illuminate\Database\Seeder;
 
-class ResumeTableSeeder extends Seeder
+class ProfileTableSeeder extends Seeder
 {
     const LIMIT = 5;
 
-    const TABLE = 'resumes';
+    const TABLE = 'profiles';
 
     /**
      * Run the database seeds.
@@ -20,7 +20,7 @@ class ResumeTableSeeder extends Seeder
         $count = 0;
 
         for ($i = 0; $i < 50; $i++) {
-            factory(\App\Models\Resume::class, self::LIMIT)->create();
+            factory(\App\Models\Profile::class, self::LIMIT)->create();
             $count += self::LIMIT;
 
             $this->command->info('Created ' . $count . ' ' . self::TABLE);
@@ -33,12 +33,12 @@ class ResumeTableSeeder extends Seeder
     {
         $skills = \App\Models\Skill::all();
 
-        foreach (\App\Models\Resume::all() as $resume) {
+        foreach (\App\Models\Profile::all() as $profile) {
             $skillsArr = $skills->random(3);
 
-            $resume->skills()->sync($skillsArr);
+            $profile->skills()->sync($skillsArr);
 
-            $this->command->info('add skills for resume id - ' . $resume->id);
+            $this->command->info('add skills for resume id - ' . $profile->id);
         }
     }
 

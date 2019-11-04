@@ -19,6 +19,6 @@ class Skill extends Model
 
     public function skills()
     {
-        return $this->belongsToMany(Resume::class, 'resume_user');
+        return $this->belongsToMany(Profile::class, 'profiles_skill');
     }
 }

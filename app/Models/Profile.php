@@ -7,7 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
 
 /**
- * App\Models\Resume
+ * App\Models\Profile
  *
  * @property integer $id
  * @property string $title
@@ -26,7 +26,7 @@ use Spatie\Translatable\HasTranslations;
  * @property integer $view_count
  * @property boolean $is_hidden
  */
-class Resume extends Model
+class Profile extends Model
 {
     use HasTranslations;
 
@@ -50,12 +50,13 @@ class Resume extends Model
         'first_name',
         'last_name',
         'description',
+        'address'
     ];
 
     protected $casts = ['birth_date' => 'datetime'];
 
     public function skills()
     {
-        return $this->belongsToMany(Skill::class, 'resume_skill');
+        return $this->belongsToMany(Skill::class, 'profiles_skill');
     }
 }

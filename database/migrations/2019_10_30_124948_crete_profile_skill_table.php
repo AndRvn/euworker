@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreteResumeSkillTable extends Migration
+class CreteProfileSkillTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreteResumeSkillTable extends Migration
      */
     public function up()
     {
-        Schema::create('resume_skill', function (Blueprint $table) {
+        Schema::create('profiles_skill', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedBigInteger('resume_id');
+            $table->unsignedBigInteger('profile_id');
             $table->unsignedBigInteger('skill_id');
 
-            $table->foreign('resume_id')->references('id')->on('resumes')->onDelete('cascade');
+            $table->foreign('profile_id')->references('id')->on('profiles')->onDelete('cascade');
             $table->foreign('skill_id')->references('id')->on('skills')->onDelete('cascade');
         });
     }
@@ -30,6 +30,6 @@ class CreteResumeSkillTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('resume_skill');
+        Schema::dropIfExists('profiles_skill');
     }
 }

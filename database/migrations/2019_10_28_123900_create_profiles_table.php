@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateResumesTable extends Migration
+class CreateProfilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,7 +13,7 @@ class CreateResumesTable extends Migration
      */
     public function up()
     {
-        Schema::create('resumes', function (Blueprint $table) {
+        Schema::create('profiles', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->unsignedBigInteger('user_id');
             $table->json('title');
@@ -21,6 +21,7 @@ class CreateResumesTable extends Migration
             $table->json('last_name');
             $table->json('description')->nullable();
             $table->json('languages')->nullable();
+            $table->json('address')->nullable();
             $table->string('resume_path')->nullable();
             $table->enum('education', config('constants.education'))->nullable();
             $table->float('desired_salary')->nullable();
@@ -47,6 +48,6 @@ class CreateResumesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('resumes');
+        Schema::dropIfExists('profiles');
     }
 }

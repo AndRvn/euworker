@@ -14,7 +14,7 @@ use Faker\Generator as Faker;
 |
 */
 
-$factory->define(\App\Models\Resume::class, function (Faker $faker) {
+$factory->define(\App\Models\Profile::class, function (Faker $faker) {
     $languages = [
         'lang' => $faker->randomElement(config('constants.languages')),
         'level' => $faker->randomElement(config('constants.language_levels')),
@@ -34,6 +34,7 @@ $factory->define(\App\Models\Resume::class, function (Faker $faker) {
         'birth_date' => $faker->dateTimeBetween('1950-01-01', '2000-12-31'),
         'city_id' => $city->id,
         'country_id' => $city->country_id,
+        'address' => ['en' => $faker->address],
         'view_count' => $faker->randomNumber(),
         'user_id' => \App\User::where('type', 'seeker')->get()->random(),
     ];
