@@ -3,9 +3,8 @@
 namespace App\Http\Resources;
 
 use Illuminate\Http\Resources\Json\JsonResource;
-use Illuminate\Http\Resources\Json\ResourceCollection;
 
-class CountryResource extends JsonResource
+class ExperienceResource extends JsonResource
 {
     /**
      * Transform the resource collection into an array.

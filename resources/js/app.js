@@ -11,6 +11,7 @@ import router from './router';
 import Vuex from 'vuex';
 import store from './store';
 import i18n from './i18n'
+import BootstrapVue from 'bootstrap-vue'
 // import VueSocialauth from 'vue-social-auth'
 
 // Set Vue globally
@@ -33,5 +34,6 @@ const app = new Vue({
     el: '#app',
     router,
     store,
-    i18n
+    i18n,
+    BootstrapVue
 });

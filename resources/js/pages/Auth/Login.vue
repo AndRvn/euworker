@@ -26,8 +26,9 @@
             </div>
             <div class="form-group">
                 <select class="form-control" v-model="locale" v-on:change="changeLocale">
-                    <option :value="languages.uk" selected>Укораїнська</option>
+                    <option :value="languages.uk">Укораїнська</option>
                     <option :value="languages.ru">Русский</option>
+                    <option :value="languages.en" selected>English</option>
                 </select>
             </div>
             <div class="form-group">
@@ -67,7 +68,7 @@
                 has_error: false,
                 errors: null,
                 locale: null,
-                languages: {uk: this.$i18n.locale, ru: this.$i18n.fallbackLocale}
+                languages: {en: this.$i18n.locale, ru: this.$i18n.fallbackLocale, uk: 'uk'}
             };
         },
 

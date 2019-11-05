@@ -5,7 +5,7 @@ namespace App\Http\Resources;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Resources\Json\JsonResource;
 
-class Role extends JsonResource
+class RoleResource extends JsonResource
 {
     /**
      * Transform the resource into an array.

@@ -3,13 +3,14 @@
 
 namespace App\Http\Controllers\Api;
 
+
+use App\Http\Resources\CountryResource;
 use App\Models\Location\Country;
 
 class CountryController extends BaseController
 {
-
-    public function index()
+    public function __invoke()
     {
-        return Country::all();
+        return CountryResource::collection(Country::all());
     }
 }

@@ -3,12 +3,13 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Resources\CategoryResource;
 use App\Models\Category;
 
 class CategoryController extends BaseController
 {
-    public function index()
+    public function __invoke()
     {
-        return Category::all();
+        return CategoryResource::collection(Category::all());
     }
 }

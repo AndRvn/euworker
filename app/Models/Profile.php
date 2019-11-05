@@ -3,8 +3,10 @@
 namespace App\Models;
 
 use Carbon\Carbon;
+use Eloquent;
 use Illuminate\Database\Eloquent\Model;
 use Spatie\Translatable\HasTranslations;
+use App\Traits\Translatable;
 
 /**
  * App\Models\Profile
@@ -25,10 +27,13 @@ use Spatie\Translatable\HasTranslations;
  * @property integer $city_id
  * @property integer $view_count
  * @property boolean $is_hidden
+ * @property boolean $user_id
+ * @mixin Eloquent
  */
 class Profile extends Model
 {
     use HasTranslations;
+    use Translatable;
 
     protected $fillable = [
         'user_id',
@@ -42,7 +47,8 @@ class Profile extends Model
         'city_id',
         'view_count',
         'experience_id',
-        'is_hidden'
+        'is_hidden',
+        'birth_date'
     ];
 
     public $translatable = [
@@ -59,4 +65,10 @@ class Profile extends Model
     {
         return $this->belongsToMany(Skill::class, 'profiles_skill');
     }
+
+    public function user()
+    {
+        return $this->belongsTo('App\User');
+    }
+
 }

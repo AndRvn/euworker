@@ -10,7 +10,7 @@ export default {
     actions: {
         GET_COUNTRIES : async (context, payload) => {
             let {data}  = await axios.get('/country');
-            context.commit(GET_COUNTRIES, data)
+            context.commit(GET_COUNTRIES, data.data)
         },
     },
     mutations: {

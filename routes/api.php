@@ -14,10 +14,15 @@ Route::group(['namespace' => 'Api'], function () {
         Route::post('/reset-password', 'AuthController@resetPassword');
     });
 
-    Route::resource('country', 'CountryController');
-    Route::resource('category', 'CategoryController');
-    Route::resource('vacancy', 'VacancyController');
-    Route::resource('user', 'UserController');
+    Route::get('/country', 'CountryController');
+    Route::get('/category', 'CategoryController');
+    Route::get('/city', 'CityController');
+    Route::get('/experience', 'ExperienceController');
+    Route::resource('/vacancy', 'VacancyController');
+    Route::resource('/user', 'UserController');
+
+    Route::get('/profile', 'ProfileController@show');
+    Route::post('/profile/{id}', 'ProfileController@store');
 });
 
 

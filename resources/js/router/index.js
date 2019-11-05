@@ -6,6 +6,7 @@ import Login from '../pages/Auth/Login';
 import HomePage from '../pages/Home';
 import Verify from "../pages/Auth/Verify";
 import Profile from "../pages/Profile";
+import CreateAdvert from "../pages/CreateAdvert";
 import store from "../store"
 
 //Errors
@@ -15,47 +16,43 @@ import NoFoundComponent from '../pages/errors/404';
 //variables
 import {authLayout, appLayout, errorLayout} from '../common/variables/layout';
 import beforeEach from "../common/module/websanovaRoueterBeforeEach";
-import CreateAdvert from "../pages/CreateAdvert";
 
 const routes = [
     {
         path: '/',
         name: 'home-page',
         component: HomePage,
-        meta: { auth: false, layout: appLayout }
+        meta: { guest: true, layout: appLayout }
     },
     {
         path: '/verify/:token',
         name: 'email-verify',
         component: Verify,
-        meta: { auth: false, layout: authLayout }
+        meta: { guest: true, layout: authLayout }
     },
     {
         path: '/register',
         name: 'register',
         component: Register,
-        meta: { auth: false, layout: authLayout }
+        meta: { guest: true, layout: authLayout }
     },
     {
         path: '/login',
         name: 'login',
         component: Login,
-        meta: { auth: false, layout: authLayout }
+        meta: { guest: true, layout: authLayout }
     },
     {
         path: '/forgot-password',
         name: 'forgot',
         component: ForgotPassword,
-        meta: { auth: false, layout: authLayout }
+        meta: { guest: true, layout: authLayout }
     },
     {
         path: '/reset-password/:token',
         name: 'reset_password',
         component: ResetPassword,
-        meta: {
-            auth: false,
-            layout: authLayout
-        }
+        meta: {guest: true, layout: authLayout}
     },
     {
         path: '/profile',
@@ -68,7 +65,7 @@ const routes = [
         path: '/advert',
         name: 'creteAdvert',
         component: CreateAdvert,
-        meta: { auth: false, layout: appLayout }
+        meta: { guest: true, layout: appLayout }
     },
     //Errors
     {

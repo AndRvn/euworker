@@ -4,7 +4,7 @@ import * as types from '../mutation-types'
 const LOCALE = 'locale';
 
 const initLang = (() => {
-    return window.localStorage.getItem(LOCALE) || 'ru';
+    return window.localStorage.getItem(LOCALE) || 'en';
 })();
 
 

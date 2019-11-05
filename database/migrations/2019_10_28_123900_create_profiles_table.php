@@ -24,19 +24,21 @@ class CreateProfilesTable extends Migration
             $table->json('address')->nullable();
             $table->string('resume_path')->nullable();
             $table->enum('education', config('constants.education'))->nullable();
-            $table->float('desired_salary')->nullable();
-            $table->dateTime('birth_date')->nullable();
+            $table->string('desired_salary')->nullable();
+            $table->date('birth_date')->nullable();
             $table->unsignedBigInteger('country_id')->nullable();
             $table->unsignedBigInteger('experience_id')->nullable();
             $table->unsignedBigInteger('city_id')->nullable();
+            $table->unsignedBigInteger('category_id')->nullable();
             $table->unsignedBigInteger('view_count')->nullable();
             $table->boolean('is_hidden')->nullable();
             $table->timestamps();
 
-            $table->foreign('experience_id')->references('id')->on('experiences')->onDelete('cascade');
+            $table->foreign('experience_id')->references('id')->on('experiences')->onDelete('set null');
             $table->foreign('user_id')->references('id')->on('users')->onDelete('cascade');
             $table->foreign('country_id')->references('id')->on('countries')->onDelete('set null');
             $table->foreign('city_id')->references('id')->on('cities')->onDelete('set null');
+            $table->foreign('category_id')->references('id')->on('categories')->onDelete('set null');
 
         });
     }

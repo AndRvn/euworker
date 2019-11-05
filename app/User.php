@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Models\Profile;
 use Cmgmyr\Messenger\Traits\Messagable;
 use Eloquent;
 use Illuminate\Auth\Passwords\CanResetPassword;
@@ -132,5 +133,10 @@ class User extends Authenticatable implements JWTSubject, CanResetPasswordContra
             $verifyToken = Str::random(15);
             $this->setAttribute('verify_token', $verifyToken);
         } while (!is_null(\App\User::where('verify_token', $verifyToken)->first()));
+    }
+
+    public function profile()
+    {
+        return $this->hasOne('App\Models\Profile');
     }
 }

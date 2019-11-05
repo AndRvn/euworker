@@ -30,12 +30,13 @@ $factory->define(\App\Models\Profile::class, function (Faker $faker) {
         'languages' => json_encode($languages),
         'description' => ['en' => $faker->realText()],
         'education' => $faker->randomElement(config('constants.education')),
-        'desired_salary' => $faker->randomFloat(3, 900, 3000),
+        'desired_salary' => $faker->randomFloat(3, 900, 3000) . $faker->currencyCode,
         'birth_date' => $faker->dateTimeBetween('1950-01-01', '2000-12-31'),
         'city_id' => $city->id,
         'country_id' => $city->country_id,
         'address' => ['en' => $faker->address],
         'view_count' => $faker->randomNumber(),
         'user_id' => \App\User::where('type', 'seeker')->get()->random(),
+        'category_id' => \App\Models\Category::all()->random(),
     ];
 });
