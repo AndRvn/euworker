@@ -28,7 +28,6 @@ class ProfileController extends BaseController
 
     public function update(Profile $profile, ProfileRequest $request)
     {
-        dd($request->file('resume'));
         $profile->fillWithTranslatable($request->all());
         $profile->save();
 
