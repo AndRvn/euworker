@@ -9,7 +9,7 @@ export default {
     },
     actions: {
         GET_CATEGORIES : async (context, payload) => {
-            let {data}  = await axios.get('/category');
+            let {data}  = await axios.get('/categories');
             context.commit(GET_CATEGORIES, data.data)
         },
     },

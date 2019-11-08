@@ -24,10 +24,11 @@ class UserRequest extends FormRequest
     public function rules()
     {
         $id = $this->request->get('id');
+        $currentPassword = $this->request->get('current', null);
 
         return [
-            'name'     => 'required|max:50',
-            'email'    => 'required|email|max:50|unique:users,email,' . $id . ',id',
+            'name'     => !$currentPassword ? '' : 'required|max:50',
+            'email'    => !$currentPassword ? '' : 'required|email|max:50|unique:users,email,' . $id . ',id',
             'password' => empty($id) ? 'required|string|min:6|max:25|confirmed' : '',
         ];
     }

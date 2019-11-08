@@ -3,9 +3,9 @@
 
 namespace App\Http\Controllers\Api;
 
+use App\Http\Requests\ProfileRequest;
 use App\Http\Resources\ProfileResource;
 use App\Models\Profile;
-use Illuminate\Http\Request;
 
 class ProfileController extends BaseController
 {
@@ -26,9 +26,9 @@ class ProfileController extends BaseController
         return new ProfileResource($user->profile);
     }
 
-    public function store(int $id, Request $request)
+    public function update(Profile $profile, ProfileRequest $request)
     {
-        $profile = Profile::findOrFail($id);
+        dd($request->file('resume'));
         $profile->fillWithTranslatable($request->all());
         $profile->save();
 

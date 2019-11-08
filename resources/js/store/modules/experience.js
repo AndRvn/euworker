@@ -9,7 +9,7 @@ export default {
     },
     actions: {
         GET_EXPERIENCES : async (context, payload) => {
-            let {data}  = await axios.get('/experience');
+            let {data}  = await axios.get('/experiences');
             context.commit(GET_EXPERIENCES, data.data)
         },
     },

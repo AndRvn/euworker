@@ -21,17 +21,18 @@ composer install --no-interaction --prefer-dist --optimize-autoloader
 echo "$CELL_BEGIN =========== Run database migrations ============ $CELL_END"
 php artisan migrate
 
-echo "$CELL_BEGIN =========== Clear caches ============ $CELL_END"
-php artisan cache:clear
-php artisan key:generate
+echo "$CELL_BEGIN =========== Create symbolic link for storage  ============ $CELL_END"
+php artisan storage:link
 
 echo "$CELL_BEGIN =========== Generate JWT ============ $CELL_END"
 php artisan jwt:secret
 
 echo "$CELL_BEGIN =========== Clear and cache routes ============ $CELL_END"
+php artisan clear-compiled
 php artisan route:clear
 php artisan route:cache
-php artisan jwt:secret
+php artisan cache:clear
+php artisan key:generate
 
 echo "$CELL_BEGIN =========== Clear and cache config ============ $CELL_END"
 php artisan config:clear

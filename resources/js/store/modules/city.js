@@ -9,7 +9,7 @@ export default {
     },
     actions: {
         GET_CITIES : async (context, payload) => {
-            let {data}  = await axios.get('/city');
+            let {data}  = await axios.get('/cities');
             context.commit(GET_CITIES, data.data)
         },
     },
